@@ -18,7 +18,7 @@ public class CrapsGameMain
 		int roll2;
 		int sum;
 
-		//Replay Loop
+		//Replay
 		while (replay)
 		{
 			System.out.print("Welcome to CrapsGame. Press enter to roll.");
@@ -32,18 +32,17 @@ public class CrapsGameMain
 			if (sum == 2 || sum == 12)
 			{
 				System.out.println("You loose.");
-				in.nextLine();
 			}
 			if (sum == 7 || sum == 11)
 			{
-				System.out.print("You win.");
-				in.nextLine();
+				System.out.println("You win.");
 			}
-			else 
+			else
 			{
 				System.out.println("Your point is: " + sum);
 				int point = sum;
-				while(sum != 7) 
+				sum = 0;
+				while(sum != 7 && sum != point) 				
 				{
 					//Subsequent Roll
 					System.out.print("Press enter to roll again.");
@@ -51,7 +50,7 @@ public class CrapsGameMain
 					roll1 = dice1.roll();
 					roll2 = dice2.roll();
 					sum = roll1 + roll2;
-					System.out.println("You rolled " + sum);
+					System.out.println("You rolled: " + sum);
 				}
 				if(sum == 7)
 				{
